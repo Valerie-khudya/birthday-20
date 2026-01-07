@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>С днём рождения, Арина 🎉</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center px-4">
+  <div class="bg-white shadow-2xl rounded-2xl p-6 sm:p-8 max-w-md w-full text-center">
+
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-pink-500 mb-4">
+      🎂 С днём рождения, Арина! 🎂
+    </h1>
+
+    <p class="text-base sm:text-lg text-gray-700 mb-6">
+      Сегодня тебе <span class="font-bold text-pink-500">20 лет</span> — и это только начало ✨  
+      Пусть в твоей жизни будет как можно больше смеха, любви, ярких моментов и людей,
+      которые ценят тебя так же сильно, как ты этого заслуживаешь!!!
+    </p>
+
+    <div class="text-5xl sm:text-6xl mb-6">🎉🎈🎁</div>
+
+    <p class="text-gray-600 italic text-sm sm:text-base">
+      «Считай свою жизнь по улыбкам, а не по слезам.  
+      Считай возраст по друзьям, а не по годам.»
+    </p>
+
+    <button
+      onclick="celebrate()"
+      class="mt-6 px-6 py-3 bg-pink-500 text-white rounded-xl shadow hover:bg-pink-600 transition w-full sm:w-auto"
+    >
+      Нажми — тебя ждёт сюрприз 🎊
+    </button>
+
+    <p
+      id="surprise"
+      class="mt-4 text-lg sm:text-xl font-semibold text-purple-600 hidden"
+    >
+      Арина, ты невероятная 💖  
+      Этот мир стал лучше 20 лет назад!
+    </p>
+  </div>
+
+  <script>
+    function celebrate() {
+      // Показываем текст
+      document.getElementById('surprise').classList.remove('hidden');
+
+      // Основной салют
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+
+      // Боковые салюты
+      setTimeout(() => {
+        confetti({ particleCount: 100, spread: 120, origin: { x: 0.1 } });
+        confetti({ particleCount: 100, spread: 120, origin: { x: 0.9 } });
+      }, 300);
+
+      // Переход на видео-поздравление
+      setTimeout(() => {
+        window.location.href = "video.html";
+        // или если будет видео-файл:
+        // window.location.href = "video.mp4";
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
